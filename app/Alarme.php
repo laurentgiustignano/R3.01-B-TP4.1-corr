@@ -1,6 +1,8 @@
 <?php
 
 
+namespace Iutrds\Tp41;
+
 class Alarme {
   private DateTime $heureAlarme;   // Heure à laquelle l'alarme doit sonner
   private bool $active = false;    // Etat de l'alarme, activée ou non
@@ -53,7 +55,7 @@ class Alarme {
 
   public function __toString() : string {
     if($this->estActive()) {
-      $retour = "L'alarme est activée et affichera ce message en se déclanchant : \"{$this->getMessage()}\" " ;
+      $retour = "L'alarme est activée et affichera ce message en se déclanchant : \"{$this->getMessage()}\" ";
     }
     else
       $retour = "L'alarme est désactivée";

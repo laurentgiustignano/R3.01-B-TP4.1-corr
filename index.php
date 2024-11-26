@@ -1,5 +1,7 @@
 <?php
 
+use Iutrds\Tp41\Alarme;
+
 require 'Alarme.php';
 
 $alarme = new Alarme();
