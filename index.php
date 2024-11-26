@@ -2,7 +2,7 @@
 
 use Iutrds\Tp41\Alarme;
 
-require 'Alarme.php';
+require 'vendor/autoload.php';
 
 $alarme = new Alarme();
 $alarme->setMessage("Fin des cours !");

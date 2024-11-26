@@ -4,7 +4,7 @@
 namespace Iutrds\Tp41;
 
 class Alarme {
-  private DateTime $heureAlarme;   // Heure à laquelle l'alarme doit sonner
+  private \DateTime $heureAlarme;   // Heure à laquelle l'alarme doit sonner
   private bool $active = false;    // Etat de l'alarme, activée ou non
   private string $message;         // Message personnalisé de l'alarme
 
