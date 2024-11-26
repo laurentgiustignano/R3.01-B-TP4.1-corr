@@ -46,7 +46,11 @@ class Alarme {
   }
 
   public function setMessage(string $message) : void {
-    $this->message = $message;
+    if(strlen($message) < 5 || strlen($message) > 51) {
+      $this->message = "";
+    }
+    else
+      $this->message = $message;
   }
 
   public function getMessage() : string {

@@ -5,5 +5,7 @@
             "Iutrds\\Tp41\\": "app/"
         }
     },
-    "require": {}
+    "require-dev": {
+        "phpunit/phpunit": "^11.4"
+    }
 }
