@@ -1,0 +1,9 @@
+{
+    "name": "iutrds/tp4.1",
+    "autoload": {
+        "psr-4": {
+            "Iutrds\\Tp41\\": "app/"
+        }
+    },
+    "require": {}
+}
