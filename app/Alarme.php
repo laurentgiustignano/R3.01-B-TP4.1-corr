@@ -66,4 +66,15 @@ class Alarme {
     return $retour . PHP_EOL;
   }
 
+
+  // Modifier l'heure de l'alarme
+  public function setHeureAlarme(string $heure) : void {
+    $this->heureAlarme = new \DateTime($heure);
+  }
+
+  // Obtenir l'heure de l'alarme
+  public function getHeureAlarme() : string {
+    return $this->heureAlarme->format('H:i');
+  }
+
 }

@@ -2,32 +2,43 @@
 
 namespace Iutrds\Tp41;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class AlarmeTest extends TestCase {
 
-  public function testMessageCorrect() {
+  #[DataProvider('messageProvider')]
+  public function testMessageCorrect(string $message, string $expected) {
     $alarme = new Alarme();
 
+
+    $alarme->setMessage($message);
+    self::assertSame($expected, $alarme->getMessage());
+    /*
+        $alarme->setMessage($messageTropLong);
+        self::assertNotEquals($messageTropLong, $alarme->getMessage());
+        self::assertEquals($messageVide, $alarme->getMessage());
+
+        $alarme->setMessage($messageCourtMaisCorrect);
+        self::assertEquals($messageCourtMaisCorrect, $alarme->getMessage());
+
+        $alarme->setMessage($messageLongMaisCorrect);
+        self::assertEquals($messageLongMaisCorrect, $alarme->getMessage());
+    */
+  }
+
+  public static function messageProvider() {
     $messageTropCourt = "abcd";
     $messageCourtMaisCorrect = "abcde";
     $messageTropLong = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz";  // 52 caracteres
     $messageLongMaisCorrect = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxy";  // 51 caracteres
     $messageVide = "";
 
-    $alarme->setMessage($messageTropCourt);
-    $this->assertNotEquals($messageTropCourt, $alarme->getMessage());
-    $this->assertEquals($messageVide, $alarme->getMessage());
-
-    $alarme->setMessage($messageTropLong);
-    $this->assertNotEquals($messageTropLong, $alarme->getMessage());
-    $this->assertEquals($messageVide, $alarme->getMessage());
-
-    $alarme->setMessage($messageCourtMaisCorrect);
-    $this->assertEquals($messageCourtMaisCorrect, $alarme->getMessage());
-
-    $alarme->setMessage($messageLongMaisCorrect);
-    $this->assertEquals($messageLongMaisCorrect, $alarme->getMessage());
-
+    return [
+      [$messageTropCourt, $messageVide],
+      [$messageCourtMaisCorrect, $messageCourtMaisCorrect],
+      [$messageLongMaisCorrect, $messageLongMaisCorrect],
+      [$messageTropLong, $messageVide],
+    ];
   }
 }
